@@ -15,7 +15,7 @@ import { MatFormFieldModule } from '@angular/material/form-field'; // Import Mat
 import { MatInputModule } from '@angular/material/input'; // Import MatInputModule
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material/snack-bar'; // Import MatSnackBarModule
-
+import { MatIconModule } from '@angular/material/icon';
 
 
 @NgModule({
@@ -37,6 +37,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar'; // Import MatSn
     FormsModule,
     ReactiveFormsModule,
     MatSnackBarModule, 
+    MatIconModule
   
   ],
   providers: [
