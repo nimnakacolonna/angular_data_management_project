@@ -5,6 +5,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { title } from 'process';
 import { PostService } from '../../services/post.service';
 import { SnakBarService } from '../../services/snak-bar.service';
+import Post from '../../dto/Post';
 
 @Component({
   selector: 'app-new',
@@ -27,13 +28,24 @@ export class NewComponent {
   });
 
   createData() {
-    this.postService.create(
-         this.form.get('id')?.value,this.form.get('userId')?.value,this.form.get('title')?.value,this.form.get('body')?.value,
-      )
-      .subscribe((response: any) => {
-        if (response) {
-          this._snackBar.trigger('saved', 'close');
-        }
-      });
+    // this.postService.create(
+    //      this.form.get('id')?.value,
+    //      this.form.get('userId')?.value,
+    //      this.form.get('title')?.value,
+    //      this.form.get('body')?.value,
+    //   )
+    //   .subscribe((response: any) => {
+    //     if (response) {
+    //       this._snackBar.trigger('saved', 'close');
+    //     }
+    //   });
+
+    let post = new Post(
+      this.form.get('id')?.value!,
+      this.form.get('userId')?.value!,
+      this.form.get('title')?.value!,
+      this.form.get('body')?.value!,
+    );
+    this.postService.createDataFireStore(post);
   }
 }
